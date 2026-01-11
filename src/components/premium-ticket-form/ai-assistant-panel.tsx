@@ -7,69 +7,33 @@ import {
   User,
   Loader2,
   X,
-  Wand2,
   FileText,
-  Target,
   MessageSquare,
   CheckCircle,
-  AlertCircle,
   RefreshCw,
   History,
-  Copy,
-  ThumbsUp,
-  ThumbsDown,
   Maximize2,
   Minimize2,
-  Volume2,
-  VolumeX,
-  Zap,
-  Brain,
-  PenTool,
-  Building2,
-  Users,
-  Clock,
-  MapPin,
-  Calendar,
-  ChevronRight,
-  ChevronDown,
   Edit3,
   Ticket,
-  AlertTriangle,
-  UserCheck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Label } from "@/components/ui/label";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
 import { useToast } from "@/hooks/use-toast";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { cn } from "@/lib/utils";
-import { STUDIOS, TRAINERS, CLASSES, PRIORITIES } from "@/lib/constants";
+import { TicketPreviewModal, type TicketPreviewData } from "@/components/ticket-preview-modal";
+import { requiresClassDetails } from "@/lib/ticketRules";
 
 interface Message {
   id: string;
